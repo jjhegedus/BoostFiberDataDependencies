@@ -32,14 +32,14 @@ int main()
   ndtech::ThreadSafeQueue<std::string> tsq;
 
   ndtech::ThreadedConsoleInput threadedConsoleInput(&tsq);
-  std::thread inputFiber;
-  threadedConsoleInput.runOn(inputFiber);
+  std::thread inputThread;
+  threadedConsoleInput.runOn(inputThread);
 
-  std::thread queueProcessingFiber;
+  std::thread queueProcessingThread;
   ndtech::FiberedQueueProcessor<std::string> qp(&tsq);
-  qp.runOn(queueProcessingFiber);
+  qp.runOn(queueProcessingThread);
 
-  inputFiber.join();
-  queueProcessingFiber.join();
+  inputThread.join();
+  queueProcessingThread.join();
 
 }
