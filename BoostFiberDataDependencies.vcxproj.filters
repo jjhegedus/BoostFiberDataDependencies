@@ -30,6 +30,9 @@
     <ClInclude Include="ThreadedConsoleInput.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MultiItemStore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">

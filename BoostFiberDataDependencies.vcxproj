@@ -92,7 +92,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
       <AdditionalOptions>/std:c++latest /d1permissive- /Zc:twoPhase-</AdditionalOptions>
-      <AdditionalIncludeDirectories>%BOOST_ROOT%</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>%BOOST_ROOT%;%NDTECH_ROOT%</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -155,6 +155,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="FiberedQueueProcessor.h" />
+    <ClInclude Include="MultiItemStore.h" />
     <ClInclude Include="NamedItemStore.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="ThreadedConsoleInput.h" />
