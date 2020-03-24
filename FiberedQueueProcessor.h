@@ -43,58 +43,58 @@ namespace ndtech {
           m_running = false;
           break;
         }
-        //if (item == "a") {
+        if (item == "a") {
 
-        //  boost::fibers::fiber t([this]() {
+          boost::fibers::fiber t([this]() {
 
-        //    std::cout << "FiberedQueueProcessor threadId = " << std::this_thread::get_id() << ": Adding Item:  Enter Item Name: ";
-        //    std::string newName = m_q->Pop();
-        //    std::cout << "FiberedQueueProcessor threadId = " << std::this_thread::get_id() << ": Adding Item:  Enter Item value: ";
-        //    std::string newValue = m_q->Pop();
-        //    std::cout << "FiberedQueueProcessor threadId = " << std::this_thread::get_id() << ": Adding Item: NAME = " << newName << " VALUE = " << newValue << std::endl;
+            std::cout << "FiberedQueueProcessor threadId = " << std::this_thread::get_id() << ": Adding Item:  Enter Item Name: ";
+            std::string newName = m_q->Pop();
+            std::cout << "FiberedQueueProcessor threadId = " << std::this_thread::get_id() << ": Adding Item:  Enter Item value: ";
+            std::string newValue = m_q->Pop();
+            std::cout << "FiberedQueueProcessor threadId = " << std::this_thread::get_id() << ": Adding Item: NAME = " << newName << " VALUE = " << newValue << std::endl;
 
-        //    boost::fibers::fiber([this, newName, newValue]() {m_store.AddItem(newName, newValue); }).detach();
-        //    });
+            boost::fibers::fiber([this, newName, newValue]() {m_store.AddItem(newName, newValue); }).detach();
+            });
 
-        //  t.join();
-        //}
-        //else 
-        //  if (item == "p") {
-        //  boost::fibers::fiber t([this]() {
+          t.join();
+        }
+        else 
+          if (item == "p") {
+          boost::fibers::fiber t([this]() {
 
-        //    std::cout << "FiberedQueueProcessor threadId = " << std::this_thread::get_id() << ": Printing Item:  Enter Item Name: ";
-        //    std::string itemName = m_q->Pop();
-        //    std::cout << "FiberedQueueProcessor threadId = " << std::this_thread::get_id() << ": Printing Item: NAME = " << itemName << std::endl;
+            std::cout << "FiberedQueueProcessor threadId = " << std::this_thread::get_id() << ": Printing Item:  Enter Item Name: ";
+            std::string itemName = m_q->Pop();
+            std::cout << "FiberedQueueProcessor threadId = " << std::this_thread::get_id() << ": Printing Item: NAME = " << itemName << std::endl;
 
-        //    boost::fibers::fiber([this, itemName]() {
-        //      auto returnedItem = m_store.GetItem(itemName);
-        //      std::cout << "FiberedQueueProcessor threadId = " << std::this_thread::get_id() << ": Got Item: NAME = " << itemName << " VALUE = " << returnedItem << std::endl;
-        //      }).detach();
+            boost::fibers::fiber([this, itemName]() {
+              auto returnedItem = m_store.GetItem(itemName);
+              std::cout << "FiberedQueueProcessor threadId = " << std::this_thread::get_id() << ": Got Item: NAME = " << itemName << " VALUE = " << returnedItem << std::endl;
+              }).detach();
 
 
-        //    });
+            });
 
-        //  t.join();
-        //}
-        //else 
-        //    if (item == "r") {
-        //  boost::fibers::fiber t([this]() {
+          t.join();
+        }
+        else 
+            if (item == "r") {
+          boost::fibers::fiber t([this]() {
 
-        //    std::cout << "ThreadedQueueProcessor threadId = " << std::this_thread::get_id() << ": Removing Item:  Enter Item Name: ";
-        //    std::string itemName = m_q->Pop();
-        //    std::cout << "ThreadedQueueProcessor threadId = " << std::this_thread::get_id() << ": Removing Item: NAME = " << itemName << std::endl;
+            std::cout << "ThreadedQueueProcessor threadId = " << std::this_thread::get_id() << ": Removing Item:  Enter Item Name: ";
+            std::string itemName = m_q->Pop();
+            std::cout << "ThreadedQueueProcessor threadId = " << std::this_thread::get_id() << ": Removing Item: NAME = " << itemName << std::endl;
 
-        //    boost::fibers::fiber([this, itemName]() {
-        //      m_store.RemoveItem(itemName);
-        //      std::cout << "ThreadedQueueProcessor threadId = " << std::this_thread::get_id() << ": ThreadedQueueProcessor:  Removed Item: NAME = " << itemName << std::endl;
-        //      }).detach();
+            boost::fibers::fiber([this, itemName]() {
+              m_store.RemoveItem(itemName);
+              std::cout << "ThreadedQueueProcessor threadId = " << std::this_thread::get_id() << ": ThreadedQueueProcessor:  Removed Item: NAME = " << itemName << std::endl;
+              }).detach();
 
-        //    }
-        //  );
+            }
+          );
 
-        //  t.join();
-        //}
-        //else
+          t.join();
+        }
+        else
           if (item == "am") {
 
             boost::fibers::fiber t([this]() {
